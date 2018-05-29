@@ -44,6 +44,9 @@ public class StatusBarModule extends ReactContextBaseJavaModule {
     }
 
     void setStatusColor(final int color){
+        if(getCurrentActivity() == null)
+          return;
+
         getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -62,6 +65,9 @@ public class StatusBarModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void hideStatusBar(){
+        if(getCurrentActivity() == null)
+          return;
+
         getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -75,6 +81,9 @@ public class StatusBarModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void showStatusBar(){
+        if(getCurrentActivity() == null)
+          return;
+        
         getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
